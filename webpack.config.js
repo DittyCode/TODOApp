@@ -19,7 +19,15 @@ const settings = {
 			},
 			{
 				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-				type: 'asset/resource',
+				use: [
+					{
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'images/',
+						},
+						loader: 'file-loader',
+					},
+				],
 			},
 		],
 	},

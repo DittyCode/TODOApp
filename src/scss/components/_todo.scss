@@ -1,0 +1,50 @@
+.todo {
+	display: flex;
+	@include flex();
+	justify-content: space-between;
+	height: 7vh;
+	border-bottom: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
+	& > * {
+		height: 100%;
+	}
+	&__image {
+		display: flex;
+		@include flex();
+		flex-basis: 10%;
+		height: 100%;
+	}
+	&__btn {
+		padding: 0.5em;
+		border-radius: 50%;
+		background-color: transparent;
+		border: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
+		cursor: pointer;
+	}
+	&__item {
+		display: flex;
+		@include flex();
+		justify-content: flex-start;
+		flex-basis: 80%;
+		padding-left: 1em;
+		&-value {
+			font-size: 1.5rem;
+			color: map-get($lightThemeColors, lightGrayishBlue);
+		}
+	}
+	&__delete {
+		display: flex;
+		@include flex();
+		flex-basis: 10%;
+		height: 100%;
+		.delete__btn {
+			border-radius: 50%;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+		}
+	}
+}
+
+.complete {
+	text-decoration: line-through;
+}

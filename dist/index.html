@@ -4,7 +4,116 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>TODO App | DittyCode</title>
+		<title>DittyCode | Todo App</title>
+		<meta
+			name="description"
+			content="TodoApp in Vanilla Javascript. You can
+		create your own tasks, delete them, edit. A typical paid application, this
+		time for free. "
+		/>
+		<meta
+			name="keywords"
+			content="TodoApp,Javascript,HTML5,SCSS3,Create|Delete|Edit tasks, dragable"
+		/>
+		<meta name="author" content="DittyCode" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 	<script defer src="./app.js"></script><link href="./main.css" rel="stylesheet"></head>
-	<body></body>
+	<body>
+		<div class="wrapper">
+			<header class="header">
+				<picture class="header__picture">
+					<source
+						media="(min-width:600px)"
+						srcset="./images/bg-desktop-dark.jpg"
+					/>
+					<img src="./images/bg-mobile-dark.jpg" alt="background-header" />
+				</picture>
+			</header>
+			<main class="main">
+				<div class="main__heading">
+					<h1 class="main__title">Todo</h1>
+					<button class="main__btn">
+						<img
+							class="main__btn-theme"
+							src="./images/icon-moon.svg"
+							alt="dark theme icon"
+							data-themeBtn
+						/>
+					</button>
+				</div>
+				<form action="" class="main__form" data-todoForm>
+					<div class="form__image">
+						<div
+							class="form__btn"
+							role="button"
+							tabindex="0"
+							aria-pressed="false"
+						>
+							<img
+								class="form__btn-img"
+								src="./images/icon-check.svg"
+								alt="dark theme icon"
+							/>
+						</div>
+					</div>
+					<input
+						class="form__input"
+						type="text"
+						name="addTodo"
+						title="AddTodo"
+						placeholder="Create a new todo.."
+						data-todoInput
+					/>
+				</form>
+				<p class="error" data-error>Input can't be empty.</p>
+				<div class="main__todos" data-todoContainer>
+					<div class="other">
+						<p class="other__items">
+							<span class="other__items-left" data-items>0</span> items left
+						</p>
+						<div class="other__filters">
+							<button class="other__filters-btn" data-filter="all">All</button>
+							<button class="other__filters-btn" data-filter="active">
+								Active
+							</button>
+							<button class="other__filters-btn" data-filter="completed">
+								Completed
+							</button>
+						</div>
+						<button class="other__clear" data-clearComplete>
+							Clear Completed
+						</button>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+	<template id="todoTemplate">
+		<div class="todo__image">
+			<div
+				class="todo__btn"
+				role="button"
+				tabindex="0"
+				aria-pressed="false"
+				data-todoStatus
+			></div>
+		</div>
+		<div class="todo__item">
+			<p class="todo__item-value"></p>
+		</div>
+		<div class="todo__delete">
+			<button class="delete__btn">
+				<img
+					class="delete__btn-img"
+					src="./images/icon-cross.svg"
+					alt="dark theme icon"
+				/>
+			</button>
+		</div>
+	</template>
 </html>

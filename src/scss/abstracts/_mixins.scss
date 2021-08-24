@@ -1,0 +1,20 @@
+@mixin WH($width, $height) {
+	width: $width;
+	height: $height;
+}
+@mixin flex($dir: row, $align: center, $justify: center) {
+	flex-direction: $dir;
+	align-items: $align;
+	justify-content: $justify;
+}
+@mixin positioning($pos: absolute, $top: 0, $left: 0) {
+	position: $pos;
+	top: $top;
+	left: $left;
+}
+@mixin btn() {
+	border: none;
+	background-color: transparent;
+	color: map-get($lightThemeColors, lightGrayishBlue);
+	cursor: pointer;
+}

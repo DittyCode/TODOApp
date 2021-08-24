@@ -1,0 +1,61 @@
+.main {
+	width: 40%;
+	min-height: 50vh;
+	@include positioning(absolute, 80px, 50%);
+	transform: translate(-50%);
+	&__heading {
+		display: flex;
+		@include flex();
+		justify-content: space-between;
+	}
+	&__title {
+		color: map-get($lightThemeColors, veryLightGray);
+		font-size: 3.5rem;
+		text-transform: uppercase;
+		letter-spacing: 12px;
+	}
+	&__btn {
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+	}
+	&__form {
+		display: flex;
+		@include flex();
+		margin-top: 4em;
+		min-height: 5vh;
+		height: 7vh;
+		background-color: map-get($darkThemeColors, veryDarkDesaturatedBlue);
+		border-radius: 10px;
+		.form__image {
+			display: flex;
+			@include flex();
+			flex-basis: 10%;
+			height: 100%;
+		}
+		.form__input {
+			flex-basis: 90%;
+			height: 100%;
+			padding-left: 1em;
+			background-color: transparent;
+			border: none;
+			outline: none;
+			font-size: 1.5rem;
+			color: map-get($lightThemeColors, lightGrayishBlue);
+		}
+		.form__btn {
+			padding: 0.5em;
+			border-radius: 50%;
+			background-color: transparent;
+			border: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
+			cursor: pointer;
+		}
+	}
+	&__todos {
+		position: relative;
+		min-height: 35vh;
+		margin-top: 2em;
+		border-radius: 10px;
+		background-color: map-get($darkThemeColors, veryDarkDesaturatedBlue);
+	}
+}

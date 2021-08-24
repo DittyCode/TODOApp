@@ -1,0 +1,32 @@
+.other {
+	display: flex;
+	@include flex();
+	position: relative;
+	justify-content: space-between;
+	height: 7vh;
+	&__items {
+		padding-left: 2em;
+		font-size: 1.2rem;
+		color: map-get($lightThemeColors, lightGrayishBlue);
+	}
+	&__filters {
+		display: flex;
+		justify-content: space-around;
+		width: 40%;
+		&-btn {
+			@include btn();
+			transition: 0.3s;
+			&:hover {
+				color: map-get($primaryColors, brightBlue);
+			}
+		}
+	}
+	&__clear {
+		@include btn();
+		padding-right: 2em;
+		transition: 0.3s;
+		&:hover {
+			color: map-get($primaryColors, brightBlue);
+		}
+	}
+}

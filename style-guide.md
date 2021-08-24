@@ -41,6 +41,3 @@ The designs were created to the following widths:
 - Font size: 18px
 
 ### Font
-
-- Family: [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans)
-- Weights: 400, 700

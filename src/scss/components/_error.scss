@@ -1,0 +1,11 @@
+.error {
+	margin-top: 1em;
+	text-align: center;
+	text-transform: uppercase;
+	color: map-get($primaryColors, errorColor);
+	opacity: 0;
+	transition: 0.3s;
+}
+.show {
+	opacity: 1;
+}

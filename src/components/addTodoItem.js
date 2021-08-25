@@ -1,56 +1,63 @@
 import { showError, hideError, isErrorActive } from './error';
 import { deleteTodo } from './deleteTodoItem';
 import { itemsLeft } from './todoItemsLeft';
-import { changeTodoStatus } from './statusTodo';
-import { addTodoToStorage, deleteTodoFromStorage } from './storage';
-
-export const renderTodoItem = (value, complete) => {
-	console.log(complete);
-	const todoTemplate = document
-		.querySelector('#todoTemplate')
-		.content.cloneNode(true);
-	const todoItem = document.createElement('div');
-	todoItem.classList.add('todo');
-	todoItem.dataset.complete = 'no';
-	todoItem.dataset.pressed = complete.dataset.pressed;
-
-	todoItem.appendChild(todoTemplate);
-
-	if (complete.dataset.pressed === 'yes') {
-		const btn = todoItem.querySelector('.todo__btn');
-		todoItem.dataset.complete = 'yes';
-		changeTodoStatus(btn);
-		btn.classList.toggle('active');
-	}
-
-	todoItem.querySelector('.todo__item-value').innerText = value;
-
-	todoItem.querySelector('.todo__btn').addEventListener('click', e => {
-		console.log(e);
-		const { target } = e;
-		changeTodoStatus(target);
-		target.classList.toggle('active');
-	});
-
-	todoItem.querySelector('.todo__delete').addEventListener('click', e => {
-		deleteTodoFromStorage(e);
-		deleteTodo(e);
-	});
-
-	return todoItem;
-};
+import { changeTodoStatusComplete, toggleItemClass } from './statusTodo';
+import {
+	addTodoToStorage,
+	deleteTodoFromStorage,
+	changeTodoStatusStorage,
+} from './storage';
+import { dragable } from './dragable';
 
 const clearInput = todoInput => {
 	todoInput.value = '';
 };
 
-export const addTodo = (todoValue, todoInput, complete) => {
+export const renderTodoItem = (value, status) => {
+	const todoTemplate = document
+		.querySelector('#todoTemplate')
+		.content.cloneNode(true);
+	const todoItem = document.createElement('div');
+	todoItem.classList.add('todo', 'draggable');
+	todoItem.setAttribute('draggable', 'true');
+	todoItem.dataset.complete = status;
+	todoItem.appendChild(todoTemplate);
+
+	todoItem.querySelector('.todo__item-value').innerText = value;
+
+	if (status === 'yes') {
+		const btn = todoItem.querySelector('.todo__btn');
+		toggleItemClass(btn, 'active');
+		changeTodoStatusComplete(btn);
+	}
+
+	todoItem
+		.querySelector('.todo__btn')
+		.addEventListener('click', ({ target }) => {
+			toggleItemClass(target, 'active');
+			changeTodoStatusStorage(target);
+			changeTodoStatusComplete(target);
+		});
+
+	todoItem
+		.querySelector('.todo__delete')
+		.addEventListener('click', ({ target }) => {
+			deleteTodoFromStorage(target);
+			deleteTodo(target);
+		});
+
+	dragable();
+
+	return todoItem;
+};
+
+export const addTodo = (todoValue, todoInput, status) => {
 	const todoContainer = document.querySelector('[data-todoContainer]');
 	todoValue ? hideError() : showError();
 	if (!isErrorActive()) {
-		addTodoToStorage(todoValue, complete);
+		todoContainer.append(renderTodoItem(todoValue, status));
+		addTodoToStorage(todoValue, status);
 		clearInput(todoInput);
-		todoContainer.prepend(renderTodoItem(todoValue, complete));
 		itemsLeft();
 	}
 };

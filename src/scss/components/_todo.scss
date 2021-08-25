@@ -3,7 +3,8 @@
 	@include flex();
 	justify-content: space-between;
 	height: 7vh;
-	border-bottom: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
+	border-bottom: 1px solid map-get($darkThemeColors, veryDarkBlue);
+	animation: fade 0.3s ease;
 	& > * {
 		height: 100%;
 	}
@@ -14,16 +15,18 @@
 		height: 100%;
 	}
 	&__btn {
-		@include WH(30px, 30px);
 		display: flex;
 		@include flex();
+		@include WH(30px, 30px);
 		border-radius: 50%;
 		background-color: transparent;
 		border: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
 		cursor: pointer;
 		&-img {
-			height: 50%;
-			width: 50%;
+			@include WH(50%, 50%);
+		}
+		@include mq(440px) {
+			@include WH(20px, 20px);
 		}
 	}
 	&__item {
@@ -43,14 +46,33 @@
 		flex-basis: 10%;
 		height: 100%;
 		.delete__btn {
+			@include btn();
 			border-radius: 50%;
-			background-color: transparent;
-			border: none;
-			cursor: pointer;
+			transition: 0.3s;
+			&:hover {
+				transform: scale(1.2);
+			}
 		}
 	}
 }
 
 .complete {
 	text-decoration: line-through;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes remove {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }

@@ -1,41 +1,13 @@
-const renderStatusImage = todoStatus => {
-	const todoItem = todoStatus.closest('.todo') || todoStatus;
-	if (todoItem.querySelector('.todo__item-value')) {
-		if (!todoStatus.children.length) {
-			todoStatus.innerHTML = `
-        <img
-					class="todo__btn-img"
-					src="./images/icon-check.svg"
-					alt="dark theme icon"
-				/>
-        `;
-			todoItem.dataset.complete = 'yes';
-			todoItem.querySelector('.todo__item-value').classList.add('complete');
-		} else {
-			todoStatus.innerHTML = '';
-			todoItem.dataset.complete = 'no';
-			todoItem.querySelector('.todo__item-value').classList.remove('complete');
-		}
-	} else {
-		if (!todoStatus.children.length) {
-			todoStatus.innerHTML = `
-        <img
-					class="todo__btn-img"
-					src="./images/icon-check.svg"
-					alt="dark theme icon"
-				/>
-        `;
-			todoItem.dataset.complete = 'yes';
-			todoItem.classList.add('active');
-		} else {
-			todoStatus.innerHTML = '';
-			todoItem.dataset.complete = 'no';
-			todoItem.classList.remove('active');
-		}
-	}
+const completeStatusImage = item => {
+	return (item.innerHTML = `
+		<img
+			class="todo__btn-img"
+			src="./images/icon-check.svg"
+			alt="icon todo complete"
+		/>
+	`);
 };
-
-export const checkTodoStatus = target => {
+export const changePressedBtnStatus = target => {
 	if (target.dataset.pressed === 'no') {
 		target.dataset.pressed = 'yes';
 	} else {
@@ -44,6 +16,30 @@ export const checkTodoStatus = target => {
 	return target.dataset.pressed;
 };
 
-export const changeTodoStatus = item => {
-	renderStatusImage(item);
+export const toggleTodoBtnStatus = todoStatus => {
+	changePressedBtnStatus(todoStatus);
+	const {
+		dataset: { pressed: status },
+	} = todoStatus;
+	todoStatus.innerHTML = `${
+		status === 'yes' ? completeStatusImage(todoStatus) : ''
+	}`;
+	toggleItemClass(todoStatus, 'active');
+};
+
+export const toggleItemClass = (item, className) => {
+	return item.classList.toggle(className);
+};
+
+export const changeTodoStatusComplete = item => {
+	const todoItem = item.closest('.todo');
+	const todoValue = todoItem.querySelector('.todo__item-value');
+	if (!item.children.length) {
+		completeStatusImage(item);
+		todoItem.dataset.complete = 'yes';
+	} else {
+		item.innerHTML = '';
+		todoItem.dataset.complete = 'no';
+	}
+	toggleItemClass(todoValue, 'complete');
 };

@@ -1,15 +1,17 @@
 body[data-theme='light'] {
 	.wrapper {
 		background-color: map-get($lightThemeColors, veryLightGray);
-	}
-	.main__form {
-		background-color: map-get($lightThemeColors, veryLightGrayishBlue);
-	}
-	.form__input {
-		color: map-get($darkThemeColors, veryDarkBlue);
-	}
-	.main__todos {
-		background-color: map-get($lightThemeColors, veryLightGrayishBlue);
+		.main {
+			&__form {
+				background-color: map-get($lightThemeColors, veryLightGrayishBlue);
+				.form__input {
+					color: map-get($darkThemeColors, veryDarkBlue);
+				}
+			}
+			&__todos {
+				background-color: map-get($lightThemeColors, veryLightGrayishBlue);
+			}
+		}
 	}
 	.todo__item-value {
 		color: map-get($darkThemeColors, veryDarkBlue);

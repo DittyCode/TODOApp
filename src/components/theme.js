@@ -1,5 +1,6 @@
 const changeThemeImage = target => {
 	const actualImage = target.getAttribute('src');
+
 	if (actualImage === './images/icon-sun.svg') {
 		target.setAttribute('src', './images/icon-moon.svg');
 	} else {

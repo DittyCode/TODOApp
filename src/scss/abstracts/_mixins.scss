@@ -18,3 +18,8 @@
 	color: map-get($lightThemeColors, lightGrayishBlue);
 	cursor: pointer;
 }
+@mixin mq($media) {
+	@media (max-width: $media) {
+		@content;
+	}
+}

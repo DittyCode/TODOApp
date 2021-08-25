@@ -1,4 +1,5 @@
 const error = document.querySelector('[data-error]');
+
 export const showError = () => {
 	error.classList.add('show');
 };

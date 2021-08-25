@@ -1,8 +1,17 @@
 .main {
 	width: 40%;
 	min-height: 50vh;
-	@include positioning(absolute, 80px, 50%);
+	@include positioning(relative, -200px, 50%);
 	transform: translate(-50%);
+	@include mq(970px) {
+		width: 60%;
+	}
+	@include mq(600px) {
+		width: 80%;
+	}
+	@include mq(440px) {
+		top: -150px;
+	}
 	&__heading {
 		display: flex;
 		@include flex();
@@ -15,9 +24,7 @@
 		letter-spacing: 12px;
 	}
 	&__btn {
-		border: none;
-		background-color: transparent;
-		cursor: pointer;
+		@include btn();
 		transition: 0.3s;
 		&:hover {
 			transform: scale(1.2);
@@ -26,9 +33,9 @@
 	&__form {
 		display: flex;
 		@include flex();
-		margin-top: 4em;
-		min-height: 5vh;
 		height: 7vh;
+		min-height: 7vh;
+		margin-top: 4em;
 		background-color: map-get($darkThemeColors, veryDarkDesaturatedBlue);
 		border-radius: 10px;
 		.form__image {
@@ -53,19 +60,24 @@
 			@include flex();
 			border-radius: 50%;
 			background-color: transparent;
-			border: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
 			cursor: pointer;
+			border: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
 			&-img {
+				@include WH(50%, 50%);
 				height: 50%;
 				width: 50%;
+			}
+			@include mq(440px) {
+				@include WH(20px, 20px);
 			}
 		}
 	}
 	&__todos {
 		position: relative;
 		margin-top: 2em;
-		border-radius: 10px;
+		padding-bottom: 7vh;
 		background-color: map-get($darkThemeColors, veryDarkDesaturatedBlue);
+		border-radius: 10px;
 	}
 }
 

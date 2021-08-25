@@ -1,8 +1,11 @@
 export const itemsLeft = () => {
 	const todoContainer = document.querySelector('[data-todoContainer]');
 	const items = document.querySelector('[data-items]');
+	const children = [...todoContainer.children]
+		.map(child => {
+			if (child.style.display != 'none') return child;
+		})
+		.filter(child => child !== undefined).length;
 
-	const left = todoContainer.children.length || 1;
-
-	items.innerHTML = left - 1;
+	items.innerHTML = children - 1;
 };

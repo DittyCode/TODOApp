@@ -14,11 +14,17 @@
 		height: 100%;
 	}
 	&__btn {
-		padding: 0.5em;
+		@include WH(30px, 30px);
+		display: flex;
+		@include flex();
 		border-radius: 50%;
 		background-color: transparent;
 		border: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
 		cursor: pointer;
+		&-img {
+			height: 50%;
+			width: 50%;
+		}
 	}
 	&__item {
 		display: flex;

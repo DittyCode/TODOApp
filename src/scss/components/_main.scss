@@ -18,6 +18,10 @@
 		border: none;
 		background-color: transparent;
 		cursor: pointer;
+		transition: 0.3s;
+		&:hover {
+			transform: scale(1.2);
+		}
 	}
 	&__form {
 		display: flex;
@@ -35,7 +39,7 @@
 		}
 		.form__input {
 			flex-basis: 90%;
-			height: 100%;
+			height: 50%;
 			padding-left: 1em;
 			background-color: transparent;
 			border: none;
@@ -44,18 +48,32 @@
 			color: map-get($lightThemeColors, lightGrayishBlue);
 		}
 		.form__btn {
-			padding: 0.5em;
+			@include WH(30px, 30px);
+			display: flex;
+			@include flex();
 			border-radius: 50%;
 			background-color: transparent;
 			border: 1px solid map-get($darkThemeColors, veryDarkGrayishBlue);
 			cursor: pointer;
+			&-img {
+				height: 50%;
+				width: 50%;
+			}
 		}
 	}
 	&__todos {
 		position: relative;
-		min-height: 35vh;
 		margin-top: 2em;
 		border-radius: 10px;
 		background-color: map-get($darkThemeColors, veryDarkDesaturatedBlue);
 	}
+}
+
+.todo__btn.active,
+.form__btn.active {
+	background-image: linear-gradient(
+		to right,
+		map-get($primaryColors, checkBackgroundGradient),
+		map-get($primaryColors, checkBackgroundGradientSecond)
+	);
 }

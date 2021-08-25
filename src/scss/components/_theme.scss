@@ -22,4 +22,7 @@ body[data-theme='light'] {
 	.other__filters-btn {
 		color: map-get($darkThemeColors, veryDarkBlue);
 	}
+	.other__filters--mobile {
+		background-color: map-get($lightThemeColors, veryLightGrayishBlue);
+	}
 }

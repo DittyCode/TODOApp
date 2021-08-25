@@ -46,7 +46,8 @@
 		}
 		.form__input {
 			flex-basis: 90%;
-			height: 50%;
+			height: 100%;
+			min-height: 100%;
 			padding-left: 1em;
 			background-color: transparent;
 			border: none;

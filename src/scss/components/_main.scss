@@ -43,6 +43,9 @@
 			@include flex();
 			flex-basis: 10%;
 			height: 100%;
+			@include mq(440px) {
+				flex-basis: 20%;
+			}
 		}
 		.form__input {
 			flex-basis: 90%;
@@ -54,6 +57,9 @@
 			outline: none;
 			font-size: 1.5rem;
 			color: map-get($lightThemeColors, lightGrayishBlue);
+			@include mq(440px) {
+				padding-left: 0;
+			}
 		}
 		.form__btn {
 			@include WH(30px, 30px);
@@ -69,7 +75,7 @@
 				width: 50%;
 			}
 			@include mq(440px) {
-				@include WH(20px, 20px);
+				@include WH(25px, 25px);
 			}
 		}
 	}
@@ -89,4 +95,10 @@
 		map-get($primaryColors, checkBackgroundGradient),
 		map-get($primaryColors, checkBackgroundGradientSecond)
 	);
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+	.main {
+		top: -100px;
+	}
 }

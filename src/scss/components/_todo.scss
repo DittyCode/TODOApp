@@ -13,6 +13,9 @@
 		@include flex();
 		flex-basis: 10%;
 		height: 100%;
+		@include mq(440px) {
+			flex-basis: 20%;
+		}
 	}
 	&__btn {
 		display: flex;
@@ -26,7 +29,7 @@
 			@include WH(50%, 50%);
 		}
 		@include mq(440px) {
-			@include WH(20px, 20px);
+			@include WH(25px, 25px);
 		}
 	}
 	&__item {
@@ -35,6 +38,9 @@
 		justify-content: flex-start;
 		flex-basis: 80%;
 		padding-left: 1em;
+		@include mq(440px) {
+			padding-left: 0;
+		}
 		&-value {
 			font-size: 1.5rem;
 			color: map-get($lightThemeColors, lightGrayishBlue);
@@ -45,6 +51,9 @@
 		@include flex();
 		flex-basis: 10%;
 		height: 100%;
+		@include mq(440px) {
+			flex-basis: 20%;
+		}
 		.delete__btn {
 			@include btn();
 			border-radius: 50%;

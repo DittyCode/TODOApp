@@ -20,9 +20,6 @@ img {
 .dragging {
   opacity: 0.5; }
 
-body {
-  min-height: 100vh; }
-
 .wrapper {
   min-height: 100vh;
   background-color: #161722; }
@@ -83,6 +80,9 @@ body {
       justify-content: center;
       flex-basis: 10%;
       height: 100%; }
+      @media (max-width: 440px) {
+        .main__form .form__image {
+          flex-basis: 20%; } }
     .main__form .form__input {
       flex-basis: 90%;
       height: 100%;
@@ -93,6 +93,9 @@ body {
       outline: none;
       font-size: 1.5rem;
       color: #d2d3db; }
+      @media (max-width: 440px) {
+        .main__form .form__input {
+          padding-left: 0; } }
     .main__form .form__btn {
       width: 30px;
       height: 30px;
@@ -111,8 +114,8 @@ body {
         width: 50%; }
       @media (max-width: 440px) {
         .main__form .form__btn {
-          width: 20px;
-          height: 20px; } }
+          width: 25px;
+          height: 25px; } }
   .main__todos {
     position: relative;
     margin-top: 2em;
@@ -123,6 +126,10 @@ body {
 .todo__btn.active,
 .form__btn.active {
   background-image: linear-gradient(to right, #57ddff, #c058f3); }
+
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  .main {
+    top: -100px; } }
 
 .error {
   margin-top: 1em;
@@ -153,6 +160,9 @@ body {
     justify-content: center;
     flex-basis: 10%;
     height: 100%; }
+    @media (max-width: 440px) {
+      .todo__image {
+        flex-basis: 20%; } }
   .todo__btn {
     display: flex;
     flex-direction: row;
@@ -169,8 +179,8 @@ body {
       height: 50%; }
     @media (max-width: 440px) {
       .todo__btn {
-        width: 20px;
-        height: 20px; } }
+        width: 25px;
+        height: 25px; } }
   .todo__item {
     display: flex;
     flex-direction: row;
@@ -179,6 +189,9 @@ body {
     justify-content: flex-start;
     flex-basis: 80%;
     padding-left: 1em; }
+    @media (max-width: 440px) {
+      .todo__item {
+        padding-left: 0; } }
     .todo__item-value {
       font-size: 1.5rem;
       color: #d2d3db; }
@@ -189,6 +202,9 @@ body {
     justify-content: center;
     flex-basis: 10%;
     height: 100%; }
+    @media (max-width: 440px) {
+      .todo__delete {
+        flex-basis: 20%; } }
     .todo__delete .delete__btn {
       border: none;
       background-color: transparent;
@@ -272,6 +288,9 @@ body[data-theme='light'] .wrapper {
       color: #161722; }
   body[data-theme='light'] .wrapper .main__todos {
     background-color: #e4e5f1; }
+
+body[data-theme='light'] .todo {
+  border-color: #d2d3db; }
 
 body[data-theme='light'] .todo__item-value {
   color: #161722; }

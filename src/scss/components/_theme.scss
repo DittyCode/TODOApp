@@ -13,6 +13,9 @@ body[data-theme='light'] {
 			}
 		}
 	}
+	.todo {
+		border-color: map-get($lightThemeColors, lightGrayishBlue);
+	}
 	.todo__item-value {
 		color: map-get($darkThemeColors, veryDarkBlue);
 	}

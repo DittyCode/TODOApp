@@ -30,7 +30,6 @@ img {
 
 .main {
   width: 40%;
-  min-height: 50vh;
   position: relative;
   top: -200px;
   left: 50%;
@@ -120,8 +119,7 @@ img {
     position: relative;
     margin-top: 2em;
     padding-bottom: 7vh;
-    background-color: #25273c;
-    border-radius: 10px; }
+    background-color: #25273c; }
 
 .todo__btn.active,
 .form__btn.active {
@@ -149,7 +147,7 @@ img {
   justify-content: center;
   justify-content: space-between;
   height: 7vh;
-  border-bottom: 1px solid #161722;
+  border: 1px solid #161722;
   animation: fade 0.3s ease; }
   .todo > * {
     height: 100%; }
@@ -278,7 +276,8 @@ img {
       height: 7vh;
       margin-top: 2em;
       background-color: #25273c;
-      border-radius: 10px; } }
+      border-radius: 10px;
+      border: 1px solid #161722; } }
 
 body[data-theme='light'] .wrapper {
   background-color: #fafafa; }

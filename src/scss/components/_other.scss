@@ -44,5 +44,6 @@
 		margin-top: 2em;
 		background-color: map-get($darkThemeColors, veryDarkDesaturatedBlue);
 		border-radius: 10px;
+		border: 1px solid map-get($darkThemeColors, veryDarkBlue);
 	}
 }

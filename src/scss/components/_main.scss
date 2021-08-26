@@ -1,6 +1,6 @@
 .main {
 	width: 40%;
-	min-height: 50vh;
+	// min-height: 50vh;
 	@include positioning(relative, -200px, 50%);
 	transform: translate(-50%);
 	@include mq(970px) {
@@ -84,7 +84,6 @@
 		margin-top: 2em;
 		padding-bottom: 7vh;
 		background-color: map-get($darkThemeColors, veryDarkDesaturatedBlue);
-		border-radius: 10px;
 	}
 }
 

@@ -3,8 +3,12 @@
 	@include flex();
 	justify-content: space-between;
 	height: 7vh;
+	min-height: 7vh;
 	border: 1px solid map-get($darkThemeColors, veryDarkBlue);
 	animation: fade 0.3s ease;
+	@include mq(440px) {
+		min-height: 10vh;
+	}
 	& > * {
 		height: 100%;
 	}

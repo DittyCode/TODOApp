@@ -4,6 +4,8 @@ body[data-theme='light'] {
 		.main {
 			&__form {
 				background-color: map-get($lightThemeColors, veryLightGrayishBlue);
+				border-color: map-get($lightThemeColors, lightGrayishBlue);
+
 				.form__input {
 					color: map-get($darkThemeColors, veryDarkBlue);
 				}
@@ -14,6 +16,9 @@ body[data-theme='light'] {
 		}
 	}
 	.todo {
+		border-color: map-get($lightThemeColors, lightGrayishBlue);
+	}
+	.other {
 		border-color: map-get($lightThemeColors, lightGrayishBlue);
 	}
 	.todo__item-value {
@@ -27,5 +32,6 @@ body[data-theme='light'] {
 	}
 	.other__filters--mobile {
 		background-color: map-get($lightThemeColors, veryLightGrayishBlue);
+		border-color: map-get($lightThemeColors, lightGrayishBlue);
 	}
 }

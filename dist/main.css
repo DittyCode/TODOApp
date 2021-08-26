@@ -71,7 +71,11 @@ img {
     min-height: 7vh;
     margin-top: 4em;
     background-color: #25273c;
-    border-radius: 10px; }
+    border-radius: 10px;
+    border: 1px solid #161722; }
+    @media (max-width: 440px) {
+      .main__form {
+        min-height: 10vh; } }
     .main__form .form__image {
       display: flex;
       flex-direction: row;
@@ -120,6 +124,9 @@ img {
     margin-top: 2em;
     padding-bottom: 7vh;
     background-color: #25273c; }
+    @media (max-width: 440px) {
+      .main__todos {
+        padding-bottom: 10vh; } }
 
 .todo__btn.active,
 .form__btn.active {
@@ -147,8 +154,12 @@ img {
   justify-content: center;
   justify-content: space-between;
   height: 7vh;
+  min-height: 7vh;
   border: 1px solid #161722;
   animation: fade 0.3s ease; }
+  @media (max-width: 440px) {
+    .todo {
+      min-height: 10vh; } }
   .todo > * {
     height: 100%; }
   .todo__image {
@@ -237,7 +248,11 @@ img {
   height: 7vh;
   position: absolute;
   bottom: 0;
-  justify-content: space-between; }
+  justify-content: space-between;
+  border: 1px solid #161722; }
+  @media (max-width: 440px) {
+    .other {
+      height: 10vh; } }
   .other__items {
     padding-left: 2em;
     font-size: 1.2rem;
@@ -278,17 +293,24 @@ img {
       background-color: #25273c;
       border-radius: 10px;
       border: 1px solid #161722; } }
+  @media (max-width: 440px) {
+    .other__filters--mobile {
+      height: 10vh; } }
 
 body[data-theme='light'] .wrapper {
   background-color: #fafafa; }
   body[data-theme='light'] .wrapper .main__form {
-    background-color: #e4e5f1; }
+    background-color: #e4e5f1;
+    border-color: #d2d3db; }
     body[data-theme='light'] .wrapper .main__form .form__input {
       color: #161722; }
   body[data-theme='light'] .wrapper .main__todos {
     background-color: #e4e5f1; }
 
 body[data-theme='light'] .todo {
+  border-color: #d2d3db; }
+
+body[data-theme='light'] .other {
   border-color: #d2d3db; }
 
 body[data-theme='light'] .todo__item-value {
@@ -301,5 +323,6 @@ body[data-theme='light'] .other__filters-btn {
   color: #161722; }
 
 body[data-theme='light'] .other__filters--mobile {
-  background-color: #e4e5f1; }
+  background-color: #e4e5f1;
+  border-color: #d2d3db; }
 

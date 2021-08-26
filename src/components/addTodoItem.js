@@ -34,9 +34,10 @@ export const renderTodoItem = (value, status) => {
 	todoItem
 		.querySelector('.todo__btn')
 		.addEventListener('click', ({ target }) => {
-			toggleItemClass(target, 'active');
-			changeTodoStatusStorage(target);
-			changeTodoStatusComplete(target);
+			const btn = target.closest('.todo__btn');
+			toggleItemClass(btn, 'active');
+			changeTodoStatusStorage(btn);
+			changeTodoStatusComplete(btn);
 		});
 
 	todoItem

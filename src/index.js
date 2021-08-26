@@ -36,7 +36,8 @@ import {
 	});
 
 	todoBtnComplete.addEventListener('click', ({ target }) => {
-		toggleTodoBtnStatus(target);
+		const btn = target.closest('.form__btn');
+		toggleTodoBtnStatus(btn);
 	});
 
 	todoForm.addEventListener('submit', e => {
